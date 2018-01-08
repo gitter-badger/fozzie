@@ -8,15 +8,16 @@
  * Define associated Button variables
  */
 
-$btn-default-bgColor             : $grey--lightest !default;
-$btn-default-weight              : 500 !default;
-$btn-default-height              : 2.6 !default;
+$btn-default-font-family         : $font-family-headings !default;
 $btn-default-font-size           : mid !default;
-$btn-default-font-family         : 'Ubuntu' !default;
-$btn-default-bgColor--highlight  : $grey--lighter !default;
-$btn-default-borderRadius        : 2px !default;
+$btn-default-textColor           : $grey--dark !default;
+$btn-default-textColor--hover    : $blue !default;
+$btn-default-weight              : $font-weight-bold !default;
+$btn-default-bgColor             : $grey--lightest !default;
+$btn-default-height              : 2.6 !default;
 $btn-default-hozPadding          : 1em !default;
 $btn-default-vertPadding         : 15px !default;
+$btn-default-borderRadius        : 2px !default;
 
 $btn-primary-bgColor             : $blue !default;
 $btn-primary-bgColor--highlight  : $blue--dark !default;
@@ -30,6 +31,7 @@ $btn-secondary-textColor         : $blue !default;
 
 $btn-wide-hozPadding             : 2em !default;
 
+$btn-disabled-textColor          : $grey--dark !default;
 $btn-disabled-bgColor            : $grey--lighter !default;
 
 $btn-outline-borderColor         : $blue !default;
@@ -39,8 +41,8 @@ $btn-outline-bgColor--hover      : $blue--offWhite !default;
 $btn-outline-textColor--hover    : $blue--dark !default;
 
 
-$btn-transparent-color           : $red !default;
-$btn-transparent-color--hover    : $grey--mid !default;
+$btn-transparent-textColor           : $red !default;
+$btn-transparent-textColor--hover    : $grey--mid !default;
 
 $btn-roundedIcon-fillColor       : $white !default;
 $btn-roundedOutline-fillColor    : $blue !default;
@@ -51,7 +53,7 @@ $btnToggle-bg                    : $grey--lightest !default;
 $btnToggle-border                : $grey--lighter !default;
 $btnToggle-active-bg             : $white !default;
 $btnToggle-active-border         : $color-secondary !default;
-$btnToggle-active-text-color     : $color-secondary !default;
+$btnToggle-active-textColor     : $color-secondary !default;
 $btnToggle-default-padding       : 5px !default;
 
 
@@ -93,13 +95,13 @@ $btn-rounded-width: 38px !default;
     border: 1px solid transparent;
     user-select: none;
 
-    color: $grey--dark;
+    color: $btn-default-textColor;
     text-decoration: none;
 
     &:hover,
     &:active,
     &:focus {
-        background-color: $btn-default-bgColor--highlight;
+        color: $btn-default-textColor--hover;
         outline: none; // no need as already has a focus/active state
     }
 
@@ -118,6 +120,7 @@ $btn-rounded-width: 38px !default;
 
         &,
         &:hover {
+            color: $btn-disabled-textColor;
             background-color: $btn-disabled-bgColor;
         }
     }
@@ -305,11 +308,11 @@ $btn-rounded-width: 38px !default;
 
  .o-btn--transparent {
     background-color: transparent;
-    color: $btn-transparent-color;
+    color: $btn-transparent-textColor;
     font-weight: 400;
 
     &:hover {
-        color: $btn-transparent-color--hover;
+        color: $btn-transparent-textColor--hover;
     }
 
     &.is-active {
@@ -443,7 +446,7 @@ input[type='button'] {
         &:focus,
         &.is-active {
             border: 1px solid $btnToggle-active-border;
-            color: $btnToggle-active-text-color;
+            color: $btnToggle-active-textColor;
             background-color: $btn-outline-bgColor--hover;
 
             & + .o-btn--outline {
